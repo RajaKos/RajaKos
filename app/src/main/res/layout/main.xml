@@ -8,11 +8,12 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="xiirpl508182838.project.smktelkom_mlg.sch.id.MainActivity" >
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:textSize="24sp"
-        android:text="RAJA KOS . OLEH KELOMPOK 7" />
+        android:text="RAJA KOS . OLEH KELOMPOK 7"
+        android:textSize="24sp" />
 </RelativeLayout>
