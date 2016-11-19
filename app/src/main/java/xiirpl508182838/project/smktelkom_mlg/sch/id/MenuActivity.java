@@ -1,5 +1,6 @@
 package xiirpl508182838.project.smktelkom_mlg.sch.id;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -83,6 +84,8 @@ public class MenuActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Intent intent = (new Intent(this, RegisterActivity.class));
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
