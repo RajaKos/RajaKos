@@ -9,7 +9,7 @@
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_live_help_black_24dp"
-            android:title="Bantuan" />
+            android:title="Help" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_power_settings_new_black_24dp"
