@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int REQUEST_CODE_ADD = 88;
 
     private FirebaseAuth firebaseAuth;
     @Override
@@ -43,6 +44,7 @@ public class MenuActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                goAdd();
             }
         });
 
@@ -54,6 +56,10 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void goAdd() {
+        startActivityForResult(new Intent(this, TambahActivity.class), REQUEST_CODE_ADD);
     }
 
     @Override
