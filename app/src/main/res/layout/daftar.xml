@@ -30,18 +30,6 @@
         android:text="Register" />
 
     <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editTextEmail"
-        android:ems="10"
-        android:gravity="center_vertical|center"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +42,30 @@
         android:gravity="center_vertical|center|clip_horizontal"
         android:hint="Email"
         android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editTextPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextEmail"
+        android:ems="10"
+        android:gravity="center_vertical|center"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
 
 </RelativeLayout>
