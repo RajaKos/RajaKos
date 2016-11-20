@@ -20,13 +20,9 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ListActivity"
-            android:label="@string/title_activity_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
