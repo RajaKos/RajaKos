@@ -23,7 +23,8 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="RegisterActivity"></activity>
+        <activity android:name=".BiodataActivity"></activity>
     </application>
 
 </manifest>

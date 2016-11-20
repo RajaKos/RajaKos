@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_biodata"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="xiirpl508182838.project.smktelkom_mlg.sch.id.BiodataActivity">
+
+    <EditText
+        android:id="@+id/editTextNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Nama"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextAlamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextNama"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Alamat"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextAlamat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:text="Submit" />
+</RelativeLayout>

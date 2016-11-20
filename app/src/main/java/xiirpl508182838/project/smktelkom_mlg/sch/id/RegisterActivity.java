@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by aldi on 11/19/2016.
@@ -26,9 +28,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText etEmail;
     private EditText etPassword;
     private EditText etNama;
+    private EditText etAlamat;
 
     private ProgressDialog progressDialog;
-
+    private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -38,9 +41,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         if (firebaseAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, BiodataActivity.class));
         }
 
         progressDialog = new ProgressDialog(this);
@@ -48,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btRegist = (Button) findViewById(R.id.buttonRegister);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etPassword = (EditText) findViewById(R.id.editTextPassword);
+
 
         btRegist.setOnClickListener(this);
 
@@ -77,10 +83,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     finish();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), BiodataActivity.class));
                 } else {
                     Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
+                progressDialog.dismiss();
             }
         });
 
