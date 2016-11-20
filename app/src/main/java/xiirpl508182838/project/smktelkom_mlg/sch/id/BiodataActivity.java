@@ -59,7 +59,7 @@ public class BiodataActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == btSubmit) {
             saveDataUser();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, MenuActivity.class));
         }
     }
 }
