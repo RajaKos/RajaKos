@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="56dp">
+
+        <TextView
+            android:id="@+id/linkSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="Form Tambah Kost"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/namakost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Kost" />
+
+        <EditText
+            android:id="@+id/alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alamat" />
+
+        <EditText
+            android:id="@+id/namapemilik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Pemilik" />
+
+        <EditText
+            android:id="@+id/kontakpemilik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kontak Pemilik"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/hargabulanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Harga sewa bulanan"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/hargasemester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Harga sewa semester"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Penghuni" />
+
+        <RadioButton
+            android:id="@+id/puteri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puteri" />
+
+        <RadioButton
+            android:id="@+id/putera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Putera" />
+
+        <RadioButton
+            android:id="@+id/campur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Campur" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Status" />
+
+        <RadioButton
+            android:id="@+id/kosong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kosong" />
+
+        <RadioButton
+            android:id="@+id/full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fasilitas" />
+
+        <EditText
+            android:id="@+id/fasilitas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="SUBMIT" />
+    </LinearLayout>
+</ScrollView>

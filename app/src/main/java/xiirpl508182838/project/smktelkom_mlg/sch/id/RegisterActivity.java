@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,79 +16,80 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Created by aldi on 11/19/2016.
+ */
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    FirebaseAuth firebaseAuth;
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button btRegist;
     private EditText etEmail;
     private EditText etPassword;
-    private TextView tvRegist;
-    private Button btLogin;
+    private EditText etNama;
+
     private ProgressDialog progressDialog;
+
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.daftar);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         if (firebaseAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
 
         progressDialog = new ProgressDialog(this);
 
+        btRegist = (Button) findViewById(R.id.buttonRegister);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etPassword = (EditText) findViewById(R.id.editTextPassword);
-        tvRegist = (TextView) findViewById(R.id.linkSignup);
-        btLogin = (Button) findViewById(R.id.buttonLogin);
 
-        btLogin.setOnClickListener(this);
-        tvRegist.setOnClickListener(this);
+        btRegist.setOnClickListener(this);
+
     }
 
-    private void userLogin() {
+    private void registerUser() {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
+            //email is empty
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+            //stopping the function execution further
             return;
         }
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
+            //password is empty
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+            //stopping the function execution further
             return;
         }
-
-        progressDialog.setMessage("Login in...");
+        progressDialog.setMessage("Registeing User...");
         progressDialog.show();
 
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                progressDialog.dismiss();
                 if (task.isSuccessful()) {
                     finish();
-                    startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 } else {
-                    Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
     @Override
-    public void onClick(View v) {
-
-        if (v == btLogin) {
-            userLogin();
-        }
-        if (v == tvRegist) {
-            finish();
-            startActivity(new Intent(this, RegisterActivity.class));
+    public void onClick(View view) {
+        if (view == btRegist) {
+            registerUser();
         }
     }
 }
-
-
