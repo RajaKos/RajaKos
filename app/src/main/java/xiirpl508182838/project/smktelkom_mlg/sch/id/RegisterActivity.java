@@ -21,13 +21,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonRegister;
-    private EditText editTextEmail;
-    private EditText ediTextPassword;
+    private Button btRegist;
+    private EditText etEmail;
+    private EditText etPassword;
 
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,28 +36,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         progressDialog = new ProgressDialog(this);
 
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        btRegist = (Button) findViewById(R.id.buttonRegister);
+        etEmail = (EditText) findViewById(R.id.editTextEmail);
+        etPassword = (EditText) findViewById(R.id.editTextPassword);
 
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        ediTextPassword = (EditText) findViewById(R.id.editTextPassword);
-
-        buttonRegister.setOnClickListener(this);
-
+        btRegist.setOnClickListener(this);
 
     }
 
     private void registerUser() {
-        String email = editTextEmail.getText().toString().trim();
-        String password = ediTextPassword.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             //email is empty
             Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
             //stopping the function execution further
             return;
-
         }
         if (TextUtils.isEmpty(password)) {
             //password is empty
@@ -64,37 +63,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             //stopping the function execution further
             return;
         }
-        //if validations are ok
-        //we will first show a progressbar
-
         progressDialog.setMessage("Registeing User...");
         progressDialog.show();
 
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //user is successfully registered and logged in
-                            //we will start the profile activity here
-                            //right now late display a toast only
-                            Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(RegisterActivity.this, "Could not register..please try again", Toast.LENGTH_SHORT).show();
-                        }
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RegisterActivity.this, "Register Sukses", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-                    }
-
-                });
     }
-
 
     @Override
     public void onClick(View view) {
-        if (view == buttonRegister) {
+        if (view == btRegist) {
             registerUser();
         }
-
-
     }
 }
