@@ -27,8 +27,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button btRegist;
     private EditText etEmail;
     private EditText etPassword;
-    private EditText etNama;
-    private EditText etAlamat;
+
 
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
@@ -53,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btRegist = (Button) findViewById(R.id.buttonRegister);
         etEmail = (EditText) findViewById(R.id.editTextEmail);
         etPassword = (EditText) findViewById(R.id.editTextPassword);
-        etNama = (EditText) findViewById(R.id.editTextName);
 
 
         btRegist.setOnClickListener(this);
@@ -61,14 +59,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void registerUser() {
-        String name = etNama.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
-
-        if (TextUtils.isEmpty(name)) {
-            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         if (TextUtils.isEmpty(email)) {
             //email is empty

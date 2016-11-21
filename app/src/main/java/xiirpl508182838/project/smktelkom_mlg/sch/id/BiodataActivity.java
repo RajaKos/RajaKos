@@ -43,6 +43,7 @@ public class BiodataActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void saveDataUser() {
+
         String nama = etNama.getText().toString().trim();
         String alamat = etAlamat.getText().toString().trim();
 
@@ -50,16 +51,23 @@ public class BiodataActivity extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         databaseReference.child(user.getUid()).setValue(dataUser);
-        Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
-
-
+        if (nama == null) {
+            Toast.makeText(this, "Harap isikan nama", Toast.LENGTH_SHORT).show();
+        }
+        if (alamat == null) {
+            Toast.makeText(this, "Harap isikan alamat", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+        }
     }
+
 
     @Override
     public void onClick(View v) {
         if (v == btSubmit) {
             saveDataUser();
-            startActivity(new Intent(this, MenuActivity.class));
+            startActivity(new Intent(this.getApplicationContext(), MainActivity.class));
+            finish();
         }
     }
 }
