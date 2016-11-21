@@ -12,13 +12,15 @@
         android:orientation="vertical"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:paddingTop="56dp">
+        android:paddingTop="56dp"
+        android:weightSum="1">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="180dp"
+            android:layout_height="209dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/foto" />
+            android:layout_weight="0.25"
+            android:background="@drawable/rajakos" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
