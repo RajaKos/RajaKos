@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,21 +43,36 @@ public class BiodataActivity extends AppCompatActivity implements View.OnClickLi
 
     private void saveDataUser() {
 
+        if (isValid()) {
+            String nama = etNama.getText().toString().trim();
+            String alamat = etAlamat.getText().toString().trim();
+
+            DataUser dataUser = new DataUser(nama, alamat);
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+            databaseReference.child(user.getUid()).setValue(dataUser);
+        }
+    }
+
+    private boolean isValid() {
+
+        boolean valid = true;
         String nama = etNama.getText().toString().trim();
         String alamat = etAlamat.getText().toString().trim();
 
-        DataUser dataUser = new DataUser(nama, alamat);
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
-        databaseReference.child(user.getUid()).setValue(dataUser);
-        if (nama == null) {
-            Toast.makeText(this, "Harap isikan nama", Toast.LENGTH_SHORT).show();
+        if (nama.isEmpty()) {
+            etNama.setError("Harap isikan nama");
+            valid = false;
+        } else {
+            etNama.setError(null);
         }
         if (alamat == null) {
-            Toast.makeText(this, "Harap isikan alamat", Toast.LENGTH_SHORT).show();
+            etNama.setError("Harap isikan alamat");
+            valid = false;
         } else {
-            Toast.makeText(this, "Saved!", Toast.LENGTH_SHORT).show();
+            etNama.setError(null);
         }
+        return valid;
     }
 
 
@@ -66,7 +80,7 @@ public class BiodataActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == btSubmit) {
             saveDataUser();
-            startActivity(new Intent(this.getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(BiodataActivity.this, MainActivity.class));
             finish();
         }
     }

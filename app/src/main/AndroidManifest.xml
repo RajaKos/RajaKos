@@ -25,6 +25,7 @@
             android:name=".RegisterActivity"
             android:label="RegisterActivity"></activity>
         <activity android:name=".BiodataActivity"></activity>
+        <activity android:name=".TambahActivity"></activity>
     </application>
 
 </manifest>
