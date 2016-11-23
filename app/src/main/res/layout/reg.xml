@@ -68,6 +68,13 @@
             android:layout_height="wrap_content"
             android:text="Jenis Penghuni" />
 
+        <RadioGroup
+            android:id="@+id/radioGroupJenis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
         <RadioButton
             android:id="@+id/puteri"
             android:layout_width="wrap_content"
@@ -86,10 +93,19 @@
             android:layout_height="wrap_content"
             android:text="Campur" />
 
+        </RadioGroup>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Status" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
 
         <RadioButton
             android:id="@+id/kosong"
@@ -102,6 +118,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Full" />
+
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"

@@ -18,9 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by aldi on 11/19/2016.
- */
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
