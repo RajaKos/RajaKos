@@ -71,8 +71,7 @@ public class TambahActivity extends AppCompatActivity {
                 DataKos dataKos = new DataKos(namaKos, alamat, namaPemilik, kontakPemilik, hargaBulanan, hargaSemester, radioStatus, radioJenis);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                databaseReference.child(user.getUid()).setValue(dataKos);
-
+                databaseReference.child("Data Kos").child(user.getUid()).setValue(dataKos);
 
             }
         });

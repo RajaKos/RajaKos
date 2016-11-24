@@ -13,7 +13,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,9 +22,13 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="RegisterActivity"></activity>
-        <activity android:name=".BiodataActivity"></activity>
-        <activity android:name=".TambahActivity"></activity>
+            android:label="Registrasi"></activity>
+        <activity
+            android:name=".BiodataActivity"
+            android:label="@string/biodata"></activity>
+        <activity
+            android:name=".TambahActivity"
+            android:label="Tambah Data Kos"></activity>
     </application>
 
 </manifest>

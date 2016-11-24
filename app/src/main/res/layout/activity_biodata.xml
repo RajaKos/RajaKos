@@ -19,7 +19,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:gravity="center"
         android:hint="Nama"
         android:inputType="textPersonName" />
 
@@ -31,16 +30,80 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextNama"
         android:ems="10"
-        android:gravity="center"
         android:hint="Alamat"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/buttonSubmit"
+    <EditText
+        android:id="@+id/editTextNoTelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextAlamat"
+        android:ems="10"
+        android:hint="Nomor Telpon"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/textViewJenisKelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="Jenis Kelamin" />
+
+    <EditText
+        android:id="@+id/editTextUsia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewJenisKelamin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:hint="Usia"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
+        android:gravity="center"
+        android:text="BIODATA"
+        android:textAppearance="@android:style/TextAppearance.Holo.Large" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupJK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewJenisKelamin">
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Putra" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Putri" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioGroupJK"
+        android:layout_marginTop="37dp"
         android:text="Submit" />
 </RelativeLayout>

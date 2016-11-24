@@ -2,7 +2,9 @@
     <string name="app_name">Login</string>
     <string name="action_settings">Setting</string>
     <string name="drawer_open">Open</string>
+    <string name="biodata">Isi Biodata</string>
     <string name="drawer_close">Close</string>
+    <string name="registrasi">Registrasi</string>
     <string name="title_activity_menu">MenuActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
