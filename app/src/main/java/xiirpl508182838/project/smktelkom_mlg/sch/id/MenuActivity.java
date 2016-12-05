@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if (firebaseAuth.getCurrentUser() == null) {
+        if (firebaseAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
